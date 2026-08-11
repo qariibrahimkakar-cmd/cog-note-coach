@@ -71,7 +71,7 @@ export type NoteOp = {
   parentId: string | null;
   kind: NoteKind;
   text: string; // compressed note text, may contain "→", "↓", "≠"
-  star?: boolean;
+  star?: boolean | undefined;
 };
 
 export type Decision = "write" | "skip" | "update" | "connect" | "wait";
