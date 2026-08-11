@@ -112,9 +112,9 @@ function normalizeEvents(raw: unknown, segments: Segment[]): DecisionEvent[] {
         event.note = {
           id: typeof noteRaw["id"] === "string" ? noteRaw["id"] : `n${i + 1}`,
           parentId: typeof noteRaw["parentId"] === "string" ? noteRaw["parentId"] : null,
-          kind: (KINDS.includes(noteRaw["kind"] as never) ? noteRaw["kind"] : "bullet") as DecisionEvent["eventType"] extends never
-            ? never
-            : NonNullable<DecisionEvent["note"]>["kind"],
+          kind: (KINDS.includes(noteRaw["kind"] as never)
+            ? noteRaw["kind"]
+            : "bullet") as NonNullable<DecisionEvent["note"]>["kind"],
           text: String(noteRaw["text"]).slice(0, 120),
           star: noteRaw["star"] === true,
         };
